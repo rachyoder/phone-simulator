@@ -1,5 +1,7 @@
 import React from 'react';
 import './Clock.css';
+import DisplayClock from './DisplayClock';
+import Timer from './Timer';
 
 class Clock extends React.Component {
     constructor(props) {
@@ -25,16 +27,10 @@ class Clock extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1 className="text-center mt-4 mb-0" id="clock">
-                    {this.state.date.toLocaleTimeString(
-                        this.props.StandardTime ? 'it-IT' : 'en-US'
-                    )}
-                </h1>
 
-                <h4 className="text-center text-muted" id="clock">{this.state.date.toLocaleDateString()}
-                </h4>
-            </div>
+            this.props.isTimer ? (<Timer currentTime={this.state.date} />)
+                : (<DisplayClock currentDate={this.state.date} />)
+
         );
     }
 }

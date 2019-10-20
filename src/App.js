@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
-import DisplayClock from './components/DisplayClock';
-import Input from './components/Input'
+import Clock from './components/Clock/Clock';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
@@ -16,9 +15,13 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="App container">
-				<DisplayClock />
-
-				<Input type={"number"} />
+				<div className="row">
+					<Clock timer={false}/>
+				</div>
+				<hr />
+				<div className="row mx-auto">
+					<Clock isTimer={true}/>
+				</div>
 			</div>
 		);
 	}
